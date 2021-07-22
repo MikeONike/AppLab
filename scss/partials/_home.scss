@@ -1,0 +1,53 @@
+.home {
+   .home-btns {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      .btn {
+         display:inline-block;
+         margin-bottom: 2rem;
+      }
+   
+      a:last-of-type {
+         @include text-form(1.6rem, $free-btn, 4.4rem);
+      }
+   }
+   p:first-of-type {
+      @include text-form(1.5rem, $head-text-dark, 2.8rem);
+      background-color: $home-text-bg;
+      border-radius: 30px;
+      padding: 0.5rem 0 0.5rem 4.7rem;
+      position: relative;
+      margin-bottom: 3rem;
+      overflow: hidden;
+      max-height: 2.8rem;
+      &::after {
+         content: "";
+         background-image: url('../../img/home/icon.png');
+         background-repeat: no-repeat;
+         background-size: 19px 19px;
+         background-position:center center ;
+         background-color: $home-icon;
+         display: block;
+         position: absolute;
+         width:3.9rem;
+         height: 100%;
+         top: 0;
+         left: 0;
+         border-radius: 30px;
+      }
+   }
+
+   h2 {
+      @include text-form(3.5rem, $head-text-dark, 5rem, 600);
+      text-align: center;
+      margin-bottom: 2rem;
+   }
+   
+   p:last-of-type {
+      @include text-form(1.6rem, $home-desc, 2.8rem);
+      text-align: center;
+      margin-bottom: 2rem;
+   }
+   
+}

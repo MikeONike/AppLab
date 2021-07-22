@@ -1,40 +1,65 @@
 // mobile head nav height = window height
+// remove hamBtn if window.innerHeight > 992
+// 
 
 let headNav = document.querySelector(".head-main-nav");
+let hamBtn = document.querySelector('.ham-btn');
+let overlay = document.querySelector('.overlay');
 
-const getWindowHeight = () =>  window.outerHeight + "px";
-const setNavHeight = () => headNav.style.height = getWindowHeight();
+const getWindowHeight = () => window.outerHeight + "px";
+const changeHeader = () => {
+   if (window.innerWidth < 992) {
+      headNav.style.height = getWindowHeight();
+      overlay.style.height = getWindowHeight();
+      if(headNav.className === "head-main-nav") {
+         headNav.classList.add('head-nav-hide');
+      }
+   } else {
+      headNav.style.height = 'auto';
+      overlay.style.height = 'auto';
+      headNav.classList.remove('head-nav-hide', 'head-nav-show');
+      overlay.classList.replace('overlay-show', 'overlay-hide');
+      hamBtn.classList.replace('ham-opened', 'ham-closed');
+   }
 
-setNavHeight();
+}
 
-window.addEventListener("scroll", () => {
-   setNavHeight();
+changeHeader();
+
+window.addEventListener("resize", () => {
+   changeHeader();
+})
+
+document.addEventListener("scroll", () => {
+   changeHeader();
 })
 
 
 // head nav slide on click (mobile)
 
-let hamBtn = document.querySelector('.ham-btn');
-let overlay = document.querySelector('.overlay');
+const hamBtnTransform = () => {
+   if (headNav.classList.contains('head-nav-hide')) {
+      hamBtn.classList.replace('ham-closed', 'ham-opened')
+   } else {
+      hamBtn.classList.replace('ham-opened', 'ham-closed')
+   }
+}
 
-hamBtn.addEventListener("click", () => {
-   if(headNav.classList.contains('head-nav-hide')) {
-      hamBtn.classList.replace('ham-btn-show', 'ham-btn-hide');
-      headNav.classList.replace('head-nav-hide', 'head-nav-show');
+const hideShowNav = () => {
+   
+
+   if (headNav.classList.contains('head-nav-hide')) {
+      hamBtnTransform();
+      headNav.classList.replace('head-nav-hide', 'head-nav-show')
       overlay.classList.replace('overlay-hide', 'overlay-show');
    } else {
-      headNav.classList.replace('head-nav-show', 'head-nav-hide');
+      hamBtnTransform();
+      headNav.classList.replace('head-nav-show', 'head-nav-hide')
       overlay.classList.replace('overlay-show', 'overlay-hide');
+
    }
+}
+
+hamBtn.addEventListener('click', () => {
+   hideShowNav();
 })
-
-overlay.addEventListener("click", () => {
-   if(overlay.classList.contains('overlay-show')) {
-      hamBtn.classList.replace('ham-btn-hide', 'ham-btn-show');
-      headNav.classList.replace('head-nav-show', 'head-nav-hide');
-      overlay.classList.replace('overlay-show', 'overlay-hide');
-   } else {
-      headNav.classList.replace('head-nav-hide', 'head-nav-show');
-      overlay.classList.replace('overlay-hide', 'overlay-show');
-   }
-});

@@ -1,5 +1,8 @@
-@mixin text-form ($size, $color, $height) {
+@mixin text-form ($size, $color: initial, $height: initial, $weight: initial, $trans: initial, $family: inherit) {
    font-size: $size;
    color: $color;
    line-height: $height;
+   font-weight: $weight;
+   text-transform: $trans;
+   font-family: $family;
 }

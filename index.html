@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" type="image/jpg" href="android-icon-192x192.png"/>
-   <link rel="apple-touch-icon" type="image/jpg" href="apple-icon-180x180.png"/>
+   <link rel="shortcut icon" type="image/jpg" href="android-icon-192x192.png" />
+   <link rel="apple-touch-icon" type="image/jpg" href="apple-icon-180x180.png" />
    <title>AppLab</title>
 
    <!-- css -->
    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-   <div class="overlay overlay-hide">
-      <p class="fas fa-times"></p>
-   </div>
+   <div class="overlay overlay-hide"></div>
    <header class="header" id="header">
       <div class="container">
-         
-         <h1 class="logo">
+
+         <h1 class="head-logo">
             <a href="#">
                <img src="img/logo/AppLab.png" alt="">
             </a>
          </h1>
 
-         <div class="ham-btn ham-btn-show">
-            <p class="fas fa-bars"></p>
+         <div class="ham-btn ham-closed">
+            <!-- <p class="fas fa-bars"></p> -->
+            <div></div>
+            <div></div>
+            <div></div>
          </div>
 
          <ul class="head-main-nav head-nav-hide">
@@ -45,13 +48,34 @@
                <a href="#">FAQ</a>
             </li>
             <li>
-               <a href="#">Try for Free</a>
+               <a class="btn" href="#">Try for Free</a>
             </li>
          </ul>
 
       </div>
    </header>
 
+   <main class="main" id="main">
+
+      <section class="home">
+         <div class="container">
+
+            <div class="home-content">
+               <p>#1 Editiors Choice App of 2020</p>
+               <h2>Best app for your modern lifestyle</h2>
+               <p>Increase productivity with a simple to-do app. app for managing</p>
+            </div>
+            <div class="home-btns">
+               <a href="#" class="btn">Try for free</a>
+               <a href="#">Watch demo video</a>
+            </div>
+
+
+         </div>
+      </section>
+
+
+   </main>
 
    <!-- font-awesome -->
    <script src="https://kit.fontawesome.com/1271c8c1a6.js" crossorigin="anonymous"></script>
@@ -60,4 +84,5 @@
    <!-- JS Script -->
    <script src="js/script.js"></script>
 </body>
+
 </html>
